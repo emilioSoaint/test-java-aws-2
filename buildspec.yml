@@ -2,17 +2,20 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      java: openjdk21
     commands:
         - echo Logging in to Amazon ECR...
         - aws --version
         #- $(aws ecr get-login-password --region us-east-2) | docker login --username AWS --password-stdin fabricaregional.dkr.ecr.us-east-2.amazonaws.com
         - echo Show folder content
         - ls -la
-        - mvnw clean install
+        - echo Maven version
+        - mvn -version
   build:
     commands:
       - echo Build started on `date`
-      - mvnw package
+      - ./mvnw package
       - docker build -t fabricaregional.dkr.ecr.us-east-2.amazonaws.com/spring-petclinic:latest .
   post_build:
     commands:
