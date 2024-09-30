@@ -6,6 +6,8 @@ phases:
         - echo Logging in to Amazon ECR...
         - aws --version
         #- $(aws ecr get-login-password --region us-east-2) | docker login --username AWS --password-stdin fabricaregional.dkr.ecr.us-east-2.amazonaws.com
+        - echo Show folder content
+        - ls -la
         - echo Cloning the repository...
         - git clone https://github.com/emilioSoaint/test-java-aws-2.git
         - cd spring-petclinic
