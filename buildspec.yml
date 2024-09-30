@@ -8,11 +8,11 @@ phases:
         #- $(aws ecr get-login-password --region us-east-2) | docker login --username AWS --password-stdin fabricaregional.dkr.ecr.us-east-2.amazonaws.com
         - echo Show folder content
         - ls -la
-        - ./mvnw clean install
+        - mvnw clean install
   build:
     commands:
       - echo Build started on `date`
-      - ./mvnw package
+      - mvnw package
       - docker build -t fabricaregional.dkr.ecr.us-east-2.amazonaws.com/spring-petclinic:latest .
   post_build:
     commands:
