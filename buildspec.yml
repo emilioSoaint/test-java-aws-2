@@ -16,10 +16,10 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn package
-      - docker build -t fabricaregional.dkr.ecr.us-east-2.amazonaws.com/spring-petclinic:latest .
+      - docker build -t fabricaregional.dkr.ecr.us-east-2.amazonaws.com/coopeuch-demo:latest .
   post_build:
     commands:
         - echo Pushing Docker image to ECR...
-        - docker push fabricaregional.dkr.ecr.us-east-2.amazonaws.com/spring-boot-app:latest
+        - docker push fabricaregional.dkr.ecr.us-east-2.amazonaws.com/coopeuch-demo:latest
         - echo Updating Kubernetes deployment...
         - kubectl apply -f k8s

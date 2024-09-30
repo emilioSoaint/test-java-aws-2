@@ -19,7 +19,7 @@ spec:
     spec:    
       containers:
       - name: copeuch-app-container
-        image: fabricaregional.dkr.ecr.us-east-1.amazonaws.com/spring-petclinic:latest
+        image: fabricaregional.dkr.ecr.us-east-1.amazonaws.com/coopeuch-demo:latest
         imagePullPolicy: Always
         env:
         - name: ELASTIC_APM_ENVIRONMENT
