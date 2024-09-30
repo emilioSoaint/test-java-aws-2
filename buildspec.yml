@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: openjdk21
+      java: corretto17
     commands:
         - echo Logging in to Amazon ECR...
         - aws --version
