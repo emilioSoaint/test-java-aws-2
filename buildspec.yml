@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+        - echo Logging in to Amazon ECR...
+        - aws --version
+        - $(aws ecr get-login-password --region <your-region>) | docker login --username AWS --password-stdin fabricaregional.dkr.ecr.us-east-2.amazonaws.com
+        - echo Cloning the repository...
+        - git clone https://github.com/emilioSoaint/test-java-aws.git
+        - cd spring-petclinic
+        - ./mvnw clean install
+  build:
+    commands:
+      - echo Build started on `date`
+      - ./mvnw package
+      - docker build -t fabricaregional.dkr.ecr.us-east-2.amazonaws.com/spring-petclinic:latest .
+  post_build:
+    commands:
+        - echo Pushing Docker image to ECR...
+        - docker push fabricaregional.dkr.ecr.us-east-2.amazonaws.com/spring-boot-app:latest
+        - echo Updating Kubernetes deployment...
+        - kubectl apply -f k8s/deployment.yml

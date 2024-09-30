@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: copeuch-app
+  namespace: coopeuch-demo
+  labels:
+    app: copeuch-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: copeuch-app
+  template:
+    metadata:
+      labels:
+        app: copeuch-app
+      annotations: #(1)
+        co.elastic.apm/attach: java #(1)
+    spec:    
+      containers:
+      - name: copeuch-app-container
+        image: fabricaregional.dkr.ecr.us-east-1.amazonaws.com/spring-petclinic:latest
+        imagePullPolicy: Always
+        env:
+        - name: ELASTIC_APM_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: apm-config
+              key: ELASTIC_APM_ENVIRONMENT
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: copeuch-svc
+  namespace: coopeuch-demo
+  annotations:
+    meta.helm.sh/release-name: copeuch-app
+    meta.helm.sh/release-namespace: coopeuch-demo
+spec:
+  selector:
+    app: copeuch-app
+  ports:
+  - protocol: TCP 
+    port: 80
+    targetPort: 8080
