@@ -7,7 +7,7 @@ phases:
     commands:
         - echo Logging in to Amazon ECR...
         - aws --version
-        - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 	846869029012.dkr.ecr.us-east-2.amazonaws.com
+        - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 	846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch
         - echo Show folder content
         - ls -la
         - echo Maven version
@@ -16,10 +16,10 @@ phases:
     commands:
       - echo Build started on `date`
       - mvn package
-      - docker build -t 846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch-demo:latest .
+      - docker build -t 846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch/coopeuch-demo:latest .
   post_build:
     commands:
         - echo Pushing Docker image to ECR...
-        - docker push 846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch-demo:latest
+        - docker push 846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch/coopeuch-demo:latest
         - echo Updating Kubernetes deployment...
         - kubectl apply -f k8s
