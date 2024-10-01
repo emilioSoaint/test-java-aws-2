@@ -1,4 +1,4 @@
-FROM openjdk:17-slim
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /opt/app
 
 COPY /target/demo-*.jar /opt/app/ROOT.jar
