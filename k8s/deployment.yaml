@@ -21,12 +21,6 @@ spec:
       - name: copeuch-app-container
         image: 846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch:latest
         imagePullPolicy: Always
-        env:
-        - name: ELASTIC_APM_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: apm-config
-              key: ELASTIC_APM_ENVIRONMENT
         ports:
         - containerPort: 8080
 ---
