@@ -28,6 +28,6 @@ phases:
         - echo Set EKS
         - aws eks --region us-east-2 update-kubeconfig  --name eks-coopeuch-demo
         - echo GET Nodes
-        - kubectl get nodes
+        - kubectl get nodes 
         - echo Updating Kubernetes deployment...
         - kubectl apply -f k8s/ 
