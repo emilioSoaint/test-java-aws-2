@@ -27,5 +27,4 @@ phases:
         - echo Set EKS
         - aws eks update-kubeconfig --region us-east-2 --name eks-coopeuch-demo
         - echo Updating Kubernetes deployment...
-        - kubectl apply -f k8s/deployment.yaml
-        - kubectl apply -f k8s/ingress.yaml
+        - kubectl apply -f k8s
