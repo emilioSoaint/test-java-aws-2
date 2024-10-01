@@ -25,6 +25,6 @@ phases:
         - echo Pushing Docker image to ECR...
         - docker push 846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch:latest
         - echo Set EKS
-        - aws eks update-kubeconfig --region us-east-2 --name eks-coopeuch-demo
+        - aws eks update-kubeconfig --region us-east-2 --name eks-coopeuch-demo --role-arn arn:aws:iam::846869029012:policy/service-role/CodeBuildBasePolicy-coopeuch-demo-build-us-east-2
         - echo Updating Kubernetes deployment...
         - kubectl apply -f k8s 
