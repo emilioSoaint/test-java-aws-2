@@ -13,6 +13,7 @@ phases:
         - ls -la
         - echo Maven version
         - mvn -version 
+        - export KUBECONFIG=$HOME/.kube/config
   build:
     commands:
       - echo Build started on `date`
@@ -29,4 +30,4 @@ phases:
         - echo GET Nodes
         - kubectl get nodes
         - echo Updating Kubernetes deployment...
-        - kubectl apply -f k8s 
+        - kubectl apply -f k8s/ 
