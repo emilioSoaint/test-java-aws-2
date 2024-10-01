@@ -7,11 +7,11 @@ phases:
     commands:
         - echo Logging in to Amazon ECR...
         - aws --version
-        - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin fabricaregional.dkr.ecr.us-east-2.amazonaws.com
+        - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 	846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch
         - echo Show folder content
         - ls -la
         - echo Maven version
-        - mvn -version
+        - mvn -version 
   build:
     commands:
       - echo Build started on `date`
