@@ -25,4 +25,5 @@ phases:
         - echo Pushing Docker image to ECR...
         - docker push 846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch:latest
         - echo Updating Kubernetes deployment...
-        - kubectl apply -f k8s
+        - kubectl apply -f k8s/deployment.yaml
+        - kubectl apply -f k8s/ingress.yaml
