@@ -1,4 +1,4 @@
-FROM openjdk:17-slim
+FROM public.ecr.aws/docker/library/eclipse-temurin:17-ubi9-minimal
 WORKDIR /opt/app
 
 COPY /target/demo-*.jar /opt/app/ROOT.jar
