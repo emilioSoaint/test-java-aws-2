@@ -12,6 +12,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
 spec:
   ingressClassName: nginx
+  type: LoadBalancer
   rules:
   - http:
       paths:
