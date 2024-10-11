@@ -24,7 +24,7 @@ phases:
       - echo Build started on `date`
       - mvn package
       - echo Deploying to Nexus
-      - mvn:deploy
+      - mvn deploy -DskipTests -Dmaven.install.skip=true
       - docker build -t nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com/coopeuch:latest .
       - echo Show docker image
       - docker images
