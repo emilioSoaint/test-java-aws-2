@@ -45,7 +45,7 @@
 	<distributionManagement>
 		<repository>
 		 <id>my-repo-id</id>
-		 <url>https://nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com</url>
+		 <url>https://nexusrepo-bars-sonatype-nexus-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com</url>
 		</repository>
 	   </distributionManagement>
 

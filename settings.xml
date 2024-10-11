@@ -1,7 +1,7 @@
 <settings>
     <servers>
       <server>
-        <id>https://nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com</id>
+        <id>https://nexusrepo-bars-sonatype-nexus-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com/</id>
         <username>docker-user</username>
         <password>Cp4i@DockerNexus</password>
       </server>
