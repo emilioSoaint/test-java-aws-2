@@ -7,7 +7,8 @@ phases:
     commands:
         - echo Logging in to Amazon ECR...
         - aws --version
-        - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 	846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch
+        # - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 	846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch
+        - docker login --username docker-user --password $DOCKER_PASSWORD https://nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com
         - echo Show folder content
         - ls -la
         - echo Maven version
@@ -24,10 +25,10 @@ phases:
     commands:
         - echo Pushing Docker image to ECR...
         - docker push 846869029012.dkr.ecr.us-east-2.amazonaws.com/coopeuch:latest
-        - echo Set EKS 
-        - aws eks update-kubeconfig --region us-east-2 --name eks-coopeuch-demo01
-        - cat /root/.kube/config
-        - echo GET Nodes
-        - kubectl get nodes 
-        - echo Updating Kubernetes deployment...
-        - kubectl apply -f k8s 
+        # - echo Set EKS 
+        # - aws eks update-kubeconfig --region us-east-2 --name eks-coopeuch-demo01
+        # - cat /root/.kube/config
+        # - echo GET Nodes
+        # - kubectl get nodes 
+        # - echo Updating Kubernetes deployment...
+        # - kubectl apply -f k8s 
