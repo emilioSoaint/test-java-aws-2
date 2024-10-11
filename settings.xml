@@ -1,0 +1,9 @@
+<settings>
+    <servers>
+      <server>
+        <id>https://nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com</id>
+        <username>$MVN_USER</username>
+        <password>$MVN_PASSWORD</password>
+      </server>
+    </servers>
+  </settings>

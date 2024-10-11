@@ -14,6 +14,10 @@ phases:
         - echo Maven version
         - mvn -version 
         - export KUBECONFIG=$HOME/.kube/config
+        - echo create .m2
+        - mkdir -p ~/.m2
+        - echo set maven settings
+        - cp settings.xml ~/.m2/settings.xml
   build:
     commands:
       - echo Build started on `date`
