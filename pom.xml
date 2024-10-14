@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>coopeuch</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>app</name>
+	<artifactId>cp4i</artifactId>
+	<version>1.0.1</version>
+	<name>aws-test</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -29,6 +29,15 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+		   <id>nexus-cp4i</id>
+		   <url>https://nexusrepo-bars-sonatype-nexus-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com/repository/maven-releases/</url> <!-- Dirección hasta el snaptshot de nuestro maven repo -->
+		</repository>
+	 </distributionManagement>
+
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -42,37 +51,29 @@
 		</dependency>
 	</dependencies>
 
-	<distributionManagement>
-		<repository>
-		 <id>my-repo-id</id>
-		 <url>https://nexusrepo-bars-sonatype-nexus-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com</url>
-		</repository>
-	   </distributionManagement>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-			 <plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-deploy-plugin</artifactId>
-			  <version>2.8.2</version>
-			 </plugin>
-			</plugins>
-		   </pluginManagement>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>sonar-maven-plugin</artifactId>
-				<version>3.2</version>
-			   </plugin>
-			   <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-			   </plugin>
+				<artifactId>maven-deploy-plugin</artifactId> <!-- Nombre del repo -->
+				<version>2.8.2</version> <!-- Version -> Comprobar que sea similar al maven instalado -->
+				<executions>
+				   <execution>
+					  <id>default-deploy</id>
+					  <phase>deploy</phase>
+					  <goals>
+						 <goal>deploy</goal>
+					  </goals>
+				   </execution>
+				</executions>
+			 </plugin>
+			
 		</plugins>
 	</build>
 

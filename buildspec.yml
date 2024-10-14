@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  variables:
+    
+
 phases:
   install:
     runtime-versions:
@@ -15,9 +19,13 @@ phases:
         - mvn -version 
         - export KUBECONFIG=$HOME/.kube/config
         - echo create .m2
-        - mkdir -p ~/.m2
+        - mkdir -p $HOME/.m2
+        - echo Installing gettext-base
+        - apt-get install gettext-base
+        - echo Changing env in settings
+        - envsubst < settings_template.xml > settings.xml
         - echo set maven settings
-        - cp settings.xml ~/.m2/settings.xml
+        - cp settings.xml $HOME/.m2/settings.xml
         - cat ~/.m2/settings.xml
   build:
     commands:

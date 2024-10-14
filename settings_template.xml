@@ -1,0 +1,9 @@
+<settings>
+    <servers>
+      <server>
+        <id>${MAVEN_ID}</id>
+        <username>${MAVEN_USER}</username>
+        <password>${MAVEN_PASSWORD}</password>
+      </server>
+    </servers>
+  </settings>
