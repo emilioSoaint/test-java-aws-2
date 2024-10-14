@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>coopeuch</groupId>
-	<artifactId>cp4i</artifactId>
+	<artifactId>cp4i-2</artifactId>
 	<version>1.0.1</version>
-	<name>aws-test</name>
+	<name>app</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
