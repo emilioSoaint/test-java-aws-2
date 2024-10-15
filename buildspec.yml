@@ -44,7 +44,7 @@ phases:
   post_build:
     commands:
         - echo Login into docker
-        - docker login --username $OC_USER --password $OC_PASS https://nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com
+        - docker login --username docker_user --password $DOCKER_PASSWORD https://nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com
         - echo Pushing Docker image to Registry...
         - docker push nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com/coopeuch:latest
         - echo Showing token
