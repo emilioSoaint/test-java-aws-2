@@ -33,7 +33,7 @@
 	<distributionManagement>
 		<repository>
 		   <id>nexus-cp4i</id>
-		   <url>https://nexusrepo-bars-sonatype-nexus-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com/repository/maven-releases/</url> <!-- Dirección hasta el snaptshot de nuestro maven repo -->
+		   <url>https://nexusrepo-bars-sonatype-nexus-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com/repository/maven-snapshots/</url> <!-- Dirección hasta el snaptshot de nuestro maven repo -->
 		</repository>
 	 </distributionManagement>
 
