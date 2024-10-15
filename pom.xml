@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>coopeuch</groupId>
 	<artifactId>cp4i-2</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 	<name>app</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
