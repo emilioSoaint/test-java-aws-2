@@ -3,6 +3,8 @@ version: 0.2
 env:
   secrets-manager:
     OC_TOKEN: "arn:aws:secretsmanager:us-east-1:846869029012:secret:OC_TOKEN-1DDUI7:OC_TOKEN"
+    OC_PASS: "arn:aws:secretsmanager:us-east-1:846869029012:secret:OC_PASS-x4nCJT:OC_PASS"
+    OC_USER: "arn:aws:secretsmanager:us-east-1:846869029012:secret:OC_USER-DFnkhw:OC_USER"
     
 
 phases:
@@ -42,7 +44,7 @@ phases:
   post_build:
     commands:
         - echo Login into docker
-        - docker login --username docker-user --password $DOCKER_PASSWORD https://nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com
+        - docker login --username $OC_USER --password $OC_PASS https://nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com
         - echo Pushing Docker image to Registry...
         - docker push nexus-test-cp4i.apps.66fb28d07658ddb185cbb03c.ocp.techzone.ibm.com/coopeuch:latest
         - echo Showing token
